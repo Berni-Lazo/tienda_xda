@@ -1,0 +1,340 @@
+@charset "UTF-8";
+/*
+ * Patrón 7-1
+ *
+ * Esta es la estructura del patrón 7-1 utilizado en DesafíoLatam
+ * para la enseñanza del uso correcto de patrones dentro de CSS y
+ * también para la utilización de éste dentro de estructuras de 
+ * trabajo colaborativo.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ * @version 1.1
+ *
+ */
+/*
+ *
+ * La mayoría de los proyectos tienen una carpeta vendors/ que contiene
+ * todos los archivos CSS de librerías externas y frameworks – Normalize,
+ * Bootstrap, jQuery, jQueryUI, Flickity, Flexslider y así sucesivamente.
+ * Agregando estos en una carpeta aparte podría ser una buena forma de
+ * decir: “Hey, esto no es mío, no es mi código, no es mi responsabilidad”.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ * @version 1.1
+ *
+ */
+/*
+ *
+ * La carpeta abstracts/ reune todas las herramientas de SASS para el proyecto.
+ * Cada variable global, función, mixin o placeholder debería estar aquí dentro.
+ * 
+ * La regla de oro para esta carpeta es que no deberá imprimir ni una sola línea
+ * de código en el momento de la compilación del CSS. Nada como los helpers de Sass.
+ * 
+ * Cuando se trabaja en un proyecto muy grande con muchos archivos abstracts, podría
+ * ser más interesante agruparlos por tópicos en vez de por tipo. Un ejemplo sería
+ * crear las instancias typography (_typography.scss), theming (_theming.scss), etc.
+ * Cada archivo contendría todos los helpers relacionados a esa instancia: variables, 
+ * functions, mixins y placeholders. Hacerlo así podría hacer el código más sencillo de 
+ * de mantener, especialmente cuando los archivos empiezan a crecer mucho.
+ * 
+ * Nota:
+ * La carpeta abstracts/ podría llamarse utilities/ o helpers/, dependiendo de lo que
+ * se prefiera.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+/*
+ *
+ * Este archivo contiene las referencias del código boilerplate de tu proyecto.
+ * Aquí podrás encontrar referencias al archivo _reset.scss, a las tipografías
+ * y probablemente algún otro archivo de estilos que defina de una forma estándard
+ * los estilos de elementos usados en HTML.
+ *
+ *
+ * Nota: 
+ * Si tu proyecto usa muchas animaciones, deberías considerar agregar dentro de
+ * esta carpeta un archivo /_animations.scss que contenga las definiciones de los
+ * @keyframes de todas tus animaciones.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+body {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Old Standard TT", serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+/*
+ *
+ * En sitios/aplicaciones grandes es usual tener distintos temas o 
+ * themes implementados. Hay diferentes caminos para lidiar con ese
+ * problema, sin embargo uno de los más sencillos, a mi parecer, sería
+ * tener cada theme dentro de su carpeta.
+ * 
+ * Nota:
+ * La creación de esta carpeta es muy específica a cada proyecto, 
+ * probablemente la mayoría de los sitio/aplicaciones no la necesitarán.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+/*
+ *
+ * Esta carpeta contiene todo lo que hace relación con el sitio web o la aplicación.
+ * Aquí encontrarás los estilos para las partes principales del sitio (header, footer,
+ * navigation, sidebar, etc), el sistema de grillas o incluso los estilos de los formularios
+ *
+ *
+ * Nota:
+ * La carpeta layout/ también podría ser llamada partials/, dependiendo de la
+ * preferencia del desarrollador.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 7em;
+}
+.header .fas {
+  font-size: 1.5em;
+}
+.header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0C0910;
+  height: 7em;
+  width: 7em;
+}
+.header__logo a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.collapsible {
+  text-align: right;
+}
+.collapsible label {
+  display: block;
+  padding-top: 1em;
+  padding-right: 1.5em;
+  font-size: 1.8rem;
+}
+
+#menu-btn {
+  display: none;
+}
+
+input:checked ~ .header__menu {
+  max-height: 150%;
+}
+
+.header__menu {
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.menu {
+  margin: 1.5em;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: #fff;
+}
+.menu a {
+  display: block;
+  text-align: left;
+  padding: 0.5em;
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  color: #0C0910;
+}
+.menu a:hover {
+  color: #D1D1D1;
+}
+
+@media (min-width: 992px) {
+  .collapsible label {
+    display: none;
+  }
+
+  .header__menu {
+    max-height: 100%;
+    padding: 0.5em 3em 0.5em 0;
+    overflow: visible;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: flex-end;
+    margin: inherit;
+    padding: inherit;
+  }
+  .menu__item a {
+    padding: 0.5em 1em;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
+.main {
+  margin: 0;
+  padding: 0;
+}
+
+.img {
+  background-image: url(../img/img.png);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  height: 20em;
+}
+
+.article {
+  background-color: #FFF;
+}
+.article__text {
+  padding-top: 0;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 3em;
+}
+.article__text h1 {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+.article__text p {
+  width: 70%;
+  color: #646266;
+  line-height: 1.5em;
+  margin-bottom: 2.25em;
+}
+.article__text a {
+  text-decoration: none;
+  color: #646266;
+  border: 1px solid #646266;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+}
+
+.form {
+  background-color: #0C0910;
+  color: #FFF;
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: auto 2em;
+}
+.form__container {
+  grid-column: 1/2;
+  padding: 2em;
+}
+.form__title {
+  font-size: 2em;
+  margin: 0;
+}
+.form__subtitle {
+  font-weight: 400;
+  padding: 0;
+  grid-column: 1/2;
+}
+.form__subtitle_vertical {
+  grid-column: 2/3;
+  background-color: #FFF;
+  color: #0C0910;
+  margin: 0;
+}
+.form__subtitle_vertical h3 {
+  transform: translateY(3.5rem) rotate(90deg);
+  font-weight: 700;
+}
+.form input {
+  height: 2em;
+  width: 17em;
+  font-family: "Raleway", sans-serif;
+  grid-column: 1/2;
+}
+
+@media (min-width: 992px) {
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .img {
+    grid-column: 2/3;
+    grid-row: 1;
+    height: 100%;
+  }
+
+  .article {
+    grid-column: 1/2;
+    grid-row: 1;
+  }
+  .article__text {
+    padding-top: 3em;
+    padding-bottom: 6em;
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+  .article h1 {
+    font-size: 3.5em;
+  }
+}
+/*
+ * 
+ * Esta carpeta fue creada para componentes o módulos pequeños como por ejemplo: 
+ * sliders, loaders, widgets, etc. A diferencia de la carpeta layout/ donde almacenaremos
+ * los componentes que definan el wireframe del sitio/aplicación, aquí encontraremos
+ * componentes que aportarán más contenido que una estructura visual.
+ * 
+ * Usualmente deberían haber muchos archivos en components/ debido a que los 
+ * sitios/aplicaciones se empezaron a crear en base a pequeños módulos de código.
+ * 
+ * Nota:
+ * Esta carpeta también se podría llamar modules/, dependiendo de cómo tu la prefieras.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+/*
+ *
+ * Si prefieres estilos de páginas específicas, es mejor ponerlos en la carpeta pages/.
+ * Por cierto, es común tener estilos muy específicos para cada página, como por ejemplo:
+ * home, de ahí la necesidad de crear un archivo _home.scss dentro de pages/.
+ * 
+ * Nota:
+ * Dependiendo del proceso de tu desarrollo, estos archivos podrían ser cargados de forma
+ * paralela al archivo de estilos principal, evitando juntarlos con los del estilo principal.
+ * Sin embargo es una decisión de cada uno o de cada proyecto.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+
+/*# sourceMappingURL=style.css.map */
